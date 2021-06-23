@@ -1,39 +1,82 @@
-* {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  max-width: 100%;
   color : White;
 }
 
+body,
+h1,
+p {
+  margin: 0;
+}
+
 body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
   background-color: black; 
   font-family: system-ui;
-  font-size: clamp(1rem, 1.5vw,  100px) ;
+  font-size: clamp(1rem, 1.5vw,  30px) ;
   letter-spacing: 0.3em;
   line-height: 1.75em;
 }
 
 h1 {
-  font-size:clamp(2.5rem, 200%, 260px);
+  font-size:clamp(2.5rem, 5vw,  100px);
   line-height: 1em;
 }
 
 h1 strong {
   color: MediumPurple;
-  font-weight:bold;
-}
-p {
-  max-width: 70em;
+  font-weight:bolder;
 }
 
 .wrapper {
   background-color: MidnightBlue;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  max-width: 2000px;
-  margin-inline-start: auto;
-  margin-inline-end:auto;
+  display: flex;
+  flex-wrap:wrap-reverse;
+  min-width: 90%;
+  min-height: 66%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapper > * {
+  flex-grow: 1;
+  flex-basis: 50%;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+}
+
+.text > * {
+  padding: 1em;
 }
 
 .picture {
-  width: 100%;
-  height: 100%;
   background-image: url("./images/image-header-desktop.jpg");
+  background-repeat: no-repeat;
+  background-position: 80% 80%;
+  background-size: cover;
+  box-shadow: inset 0 0 0 50vw RGBa(91, 46, 183, 0.7);
 }
+
+aside {
+font-size: 80%;
+display: flex;
+flex-wrap: wrap;
+gap: 2em;
+/*justify-content: space-between;*/
+margin-top: auto;
+text-transform: uppercase;
+}
+
+aside strong {
+font-size: clamp(1.5rem, 3vw, 60px);
+}
+
